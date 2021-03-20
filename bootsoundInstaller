@@ -1,0 +1,51 @@
+#!/usr/bin/bash
+
+echo "Linux Boot Sound Installer"
+echo ""
+echo ""
+echo "please enter the path to your sound file, make sure its a .wav file, else it wont work!"
+read soundPath
+clear
+echo "creating the systemd service ..."
+echo "[Unit]
+Description=Boot Sound
+Wants=sound.target
+After=sound.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=no
+ExecStart=/usr/bin/aplay /boot/boot-sound.wav 2>&1 >/dev/null &
+
+[Install]
+WantedBy=multi-user.target" > $HOME/.cache/boot-sound.service
+sudo cp $HOME/.cache/boot-sound.service /etc/systemd/system/boot-sound.service
+sleep 1
+clear
+echo "creating the systemd service [ ok ]"
+echo "copying your sound file to the correct path ..."
+sleep 1
+if [[ ! -f $soundPath ]];
+then
+    echo "creating the systemd service [ ok ]"
+    echo "copying your sound file to the correct path [ failed ]"
+    echo "file not found! did you put in the right path?"
+    exit
+elif [[ -f $soundPath ]]
+then
+    echo "creating the systemd service [ ok ]"
+    sudo cp $soundPath /boot/boot-sound.wav
+    echo "copying your sound file to the correct path [ ok ]"
+    clear
+    echo "creating the systemd service [ ok ]"
+    echo "copying your sound file to the correct path [ ok ]"
+    echo "enabeling systemd service ..."
+    systemctl enable boot-sound.service
+    sleep 1
+    clear
+    echo "creating systemd service [ ok ]"
+    echo "copying your sound file to the correct path [ ok ]"
+    echo "enabeling systemd service [ ok ]"
+    echo "You should hear the sound next boot!"
+    sleep 1
+fi
