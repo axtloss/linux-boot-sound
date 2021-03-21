@@ -6,8 +6,8 @@ A linux distro that uses systemd
 aplay (should be preinstalled, if not check in your distros repos and install it)
 
 # Note
-While every distro is supposed to work, there might be some distros that don't, check [tested distros](placeholder) for more information
-If you tested a distro not listed in [tested distros](placeholder) either update the README yourself or just open a new thread in issues with the label "Distro test"
+While every distro is supposed to work, there might be some distros that don't, check [tested distros](https://github.com/axtloss/linux-boot-sound#supportedtested-distros) for more information
+If you tested a distro not listed in [tested distros](https://github.com/axtloss/linux-boot-sound#supportedtested-distros) either update the README yourself or just open a new thread in issues with the label "Distro test"
 
 # Installation
 The installation procedure should be the same for every distro
