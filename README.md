@@ -26,10 +26,9 @@ the script will guide you through the rest
 | ------ | ----- |
 | Arch    | tested twice, not working |
 | ubuntu(based distros)  | tested, working |
-| Debian  | untested |
+| Debian  | untested, should work as ubuntu also works |
 | Fedora  | untested |
 | Gentoo  | untested |
-| pearOS  | tested, working |
 
 If you don't see your distro here fell free to test it and update the README or open a thread in issues with the label "Distro test"
 
